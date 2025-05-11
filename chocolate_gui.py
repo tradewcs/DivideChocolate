@@ -1,24 +1,30 @@
 import roshen
 from gui_constants import *
 
-def ChocolateGUI():
+class ChocolateGUI:
     def __init__(self):
-        chocolate = roshen.Chocolate(8, 6)
+        self.chocolate = roshen.Chocolate(6, 8)
 
         CHOCOLATE_CELL_SIZE = 50
 
-        CHOCOLATE_WIDTH = CHOCOLATE_CELL_SIZE * chocolate.m
-        CHOCOLATE_HEIGHT = CHOCOLATE_CELL_SIZE * chocolate.n
+        CHOCOLATE_WIDTH = CHOCOLATE_CELL_SIZE * self.chocolate.m
+        CHOCOLATE_HEIGHT = CHOCOLATE_CELL_SIZE * self.chocolate.n
 
         CHOCOLATE_COORDINATES = (SCREEN_PADDING, SCREEN_PADDING)
 
-        def fill_division_grid(grid):
-            for i in range(chocolate.n - 1):
-                for j in range(chocolate.m - 1):
-                    divisionGrid[0][0]
+        def fill_divisions_coordinates():
+            for i in range(1, self.chocolate.n):
+                self.horisontalDivisions.append((
+                    CHOCOLATE_COORDINATES[0] + i * CHOCOLATE_CELL_SIZE,
+                    CHOCOLATE_COORDINATES[1]
+                ))
+
+            for j in range(1, self.chocolate.m):
+                self.verticalDivisions.append((
+                    CHOCOLATE_COORDINATES[1] + j * CHOCOLATE_CELL_SIZE,
+                    CHOCOLATE_COORDINATES[0]
+                ))
 
 
-        divisionGrid = [[] * chocolate.m - 1] * chocolate.n - 1
-        print(divisionGrid)
-
-
+        self.horisontalDivisions = []
+        self.verticalDivisions = []
