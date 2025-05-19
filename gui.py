@@ -1,4 +1,5 @@
 import pygame
+import sys
 from gui_constants import *
 from chocolate_gui import ChocolateGUI
 
@@ -14,8 +15,12 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+            sys.exit()
         if event.type == pygame.KEYDOWN:
             print(f"Key pressed: {pygame.key.name(event.key)}")
 
 
     screen.fill(SCREEN_BG)
+    chocolateGui.draw_chocolate(screen)
+
+    pygame.display.flip()
